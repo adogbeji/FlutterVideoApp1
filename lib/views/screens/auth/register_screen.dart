@@ -7,7 +7,17 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Register Screen'),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('Register', style: TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 3,
+            ),),
+          ],
+        ),
       ),
     );
   }
