@@ -31,10 +31,19 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
 
+              // EMAIL INPUT FIELD
               TextFormField(
                 decoration: const InputDecoration(
                   labelText: 'Email',
                   hintText: 'Enter Email...',
+                  prefixIcon: Icon(Icons.email, color: Colors.red,),
+                ),
+              ),
+
+              // PHONE NUMBER INPUT FIELD
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Phone',
                 ),
               ),
             ],
