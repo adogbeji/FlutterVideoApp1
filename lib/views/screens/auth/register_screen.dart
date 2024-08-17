@@ -44,7 +44,10 @@ class RegisterScreen extends StatelessWidget {
               TextFormField(
                 decoration: const InputDecoration(
                   labelText: 'Phone',
+                  hintText: 'Enter Phone...',
+                  prefixIcon: Icon(Icons.phone, color: Colors.red,),
                 ),
+                keyboardType: TextInputType.phone,
               ),
             ],
           ),
