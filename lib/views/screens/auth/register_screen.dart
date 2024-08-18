@@ -49,6 +49,16 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 keyboardType: TextInputType.phone,
               ),
+
+              // PASSWORD INPUT FIELD
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                  hintText: 'Enter Password...',
+                  prefixIcon: Icon(Icons.lock, color: Colors.red,),
+                ),
+                obscureText: true,
+              ),
             ],
           ),
         ),
