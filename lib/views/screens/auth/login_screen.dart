@@ -5,20 +5,31 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'Log In',
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 3,
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(14.0),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                'Log In',
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 3,
+                ),
               ),
-            ),
-          ],
+
+              // EMAIL INPUT FIELD
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  hintText: 'Enter Email...',
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
