@@ -26,6 +26,14 @@ class LoginScreen extends StatelessWidget {
                 decoration: const InputDecoration(
                   labelText: 'Email',
                   hintText: 'Enter Email...',
+                  prefixIcon: Icon(Icons.email, color: Colors.red,),
+                ),
+              ),
+
+              // PASSWORD INPUT FIELD
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Password',
                 ),
               ),
             ],
