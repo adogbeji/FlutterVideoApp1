@@ -40,6 +40,17 @@ class LoginScreen extends StatelessWidget {
                   prefixIcon: Icon(Icons.lock, color: Colors.red,),
                 ),
               ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Dont\'t yet have an account?'),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Create one.'),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
