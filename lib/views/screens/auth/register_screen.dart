@@ -22,53 +22,79 @@ class RegisterScreen extends StatelessWidget {
                     letterSpacing: 3,
                   ),
                 ),
-                    
+
+                Stack(
+                  children: [
+                    CircleAvatar(
+                      radius: 52,
+                      child: Icon(
+                        Icons.person,
+                        size: 55,
+                      ),
+                    ),
+
+                    Icon(Icons.camera_alt),
+                  ],
+                ),
+
                 // NAME INPUT FIELD
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Name',
                     hintText: 'Enter Name...',
-                    prefixIcon: Icon(Icons.person, color: Colors.red,),
+                    prefixIcon: Icon(
+                      Icons.person,
+                      color: Colors.red,
+                    ),
                   ),
                 ),
-            
+
                 const SizedBox(height: 8,),
-            
+
                 // EMAIL INPUT FIELD
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Email',
                     hintText: 'Enter Email...',
-                    prefixIcon: Icon(Icons.email, color: Colors.red,),
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: Colors.red,
+                    ),
                   ),
                 ),
-            
+
                 const SizedBox(height: 8,),
-            
+
                 // PHONE NUMBER INPUT FIELD
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Phone',
                     hintText: 'Enter Phone...',
-                    prefixIcon: Icon(Icons.phone, color: Colors.red,),
+                    prefixIcon: Icon(
+                      Icons.phone,
+                      color: Colors.red,
+                    ),
                   ),
                   keyboardType: TextInputType.phone,
                 ),
-            
+
                 const SizedBox(height: 8,),
-            
+
                 // PASSWORD INPUT FIELD
                 TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Password',
                     hintText: 'Enter Password...',
-                    prefixIcon: Icon(Icons.lock, color: Colors.red,),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: Colors.red,
+                    ),
                   ),
                   obscureText: true,
                 ),
-            
+
                 const SizedBox(height: 12,),
-            
+
                 // REGISTER BUTTON
                 InkWell(
                   onTap: () {},
@@ -80,13 +106,16 @@ class RegisterScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: const Center(
-                      child: Text('Register', style: TextStyle(
-                        fontSize: 18,
-                      ),),
+                      child: Text(
+                        'Register',
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-                
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
