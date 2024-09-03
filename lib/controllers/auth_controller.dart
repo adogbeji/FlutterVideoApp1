@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:video_app_1/models/user.dart' as userModel;
 import 'package:video_app_1/models/utils/global.dart';
+import 'package:video_app_1/views/screens/auth/register_screen.dart';
 
 class AuthController extends GetxController {
 
@@ -97,5 +98,31 @@ class AuthController extends GetxController {
     String downloadURL = await taskSnapshot.ref.getDownloadURL();  // Stores image download URL
 
     return downloadURL;
+  }
+
+  // Logs in users
+  void loginUserNow(String userEmail, String userPassword) async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: userEmail, 
+        password: userPassword,
+      );  // Logs in user withemail and password
+
+      Get.snackbar(
+        'Login Successful',
+        'Welcome to the app!'
+      );
+      
+      showProgressBar = false;
+      // Get.to(const RegisterScreen());
+    } catch (e) {
+      Get.snackbar(
+        'Login Failed',
+        'Error Occurred. Try Again!'
+      );
+      
+      showProgressBar = false;
+      Get.to(const RegisterScreen());
+    }
   }
 }

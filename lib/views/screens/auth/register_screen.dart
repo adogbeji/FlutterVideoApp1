@@ -1,7 +1,25 @@
 import 'package:flutter/material.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  void _openModal() {
+    showModalBottomSheet(context: context, builder: (ctx) {
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text('Pick your profile picture!'),
+          ],
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +54,7 @@ class RegisterScreen extends StatelessWidget {
                       right: -12,
                       // top: 10,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: _openModal,
                         icon: const Icon(Icons.camera_alt),
                       ),
                     ),
