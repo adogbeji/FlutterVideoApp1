@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:video_app_1/views/widgets/profile_picture_options.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -10,14 +12,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   void _openModal() {
     showModalBottomSheet(context: context, builder: (ctx) {
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Text('Pick your profile picture!'),
-          ],
-        ),
-      );
+      return const ProfilePictureOptions();
     });
   }
 
