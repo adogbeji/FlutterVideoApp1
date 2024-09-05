@@ -12,7 +12,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   void _openModal() {
     showModalBottomSheet(context: context, builder: (ctx) {
-      return const ProfilePictureOptions();
+      return ProfilePictureOptions();
     });
   }
 

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:video_app_1/controllers/auth_controller.dart';
+
 class ProfilePictureOptions extends StatelessWidget {
-  const ProfilePictureOptions({super.key});
+  ProfilePictureOptions({super.key});
+
+  var authController = AuthController.instanceAuth;  // Stores instance of AuthController
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +14,11 @@ class ProfilePictureOptions extends StatelessWidget {
       child: Column(
         children: [
           const Text('Pick your profile picture!'),
+
+          const SizedBox(height: 35,),
+
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Column(
                 children: [
@@ -18,6 +26,16 @@ class ProfilePictureOptions extends StatelessWidget {
                   IconButton(
                     onPressed: () {},
                     icon: const Icon(Icons.photo_album_outlined),
+                  ),
+                ],
+              ),
+
+              Column(
+                children: [
+                  const Text('Camera'),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.camera_alt),
                   ),
                 ],
               ),
