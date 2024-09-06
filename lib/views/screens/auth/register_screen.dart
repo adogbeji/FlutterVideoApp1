@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:video_app_1/controllers/auth_controller.dart';
 
 import 'package:video_app_1/views/widgets/profile_picture_options.dart';
 
@@ -10,9 +11,11 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  var authController = AuthController.instanceAuth;  // Stores instance of AuthController
+
   void _openModal() {
     showModalBottomSheet(context: context, builder: (ctx) {
-      return ProfilePictureOptions();
+      return ProfilePictureOptions(authController);
     });
   }
 
