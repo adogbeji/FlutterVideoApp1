@@ -25,6 +25,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   late String password;
 
+  bool _isLoading = false;
+
   Uint8List? _image;  // Stores picked image
 
   void _openModal() {
@@ -51,6 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
   }
 
+  // Calls function in AuthController class
   void _registerUser() {}
 
   @override
@@ -98,6 +101,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 // NAME INPUT FIELD
                 TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Name must not be empty!';
+                    } else {
+                      return null;  // Does nothing
+                    }
+                  },
                   decoration: const InputDecoration(
                     labelText: 'Name',
                     hintText: 'Enter Name...',
@@ -112,6 +122,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 // EMAIL INPUT FIELD
                 TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Email must not be empty!';
+                    } else {
+                      return null;  // Does nothing
+                    }
+                  },
                   decoration: const InputDecoration(
                     labelText: 'Email',
                     hintText: 'Enter Email...',
@@ -126,6 +143,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 // PHONE NUMBER INPUT FIELD
                 TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Phone number must not be empty!';
+                    } else {
+                      return null;  // Does nothing
+                    }
+                  },
                   decoration: const InputDecoration(
                     labelText: 'Phone',
                     hintText: 'Enter Phone...',
@@ -141,6 +165,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 // PASSWORD INPUT FIELD
                 TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Password not be empty!';
+                    } else {
+                      return null;  // Does nothing
+                    }
+                  },
                   decoration: const InputDecoration(
                     labelText: 'Password',
                     hintText: 'Enter Password...',
