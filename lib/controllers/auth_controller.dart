@@ -20,33 +20,46 @@ class AuthController extends GetxController {
 
 
   // Picks image from phone gallery
-  Future<void> chooseImageFromGallery() async {
+  // Future<void> chooseImageFromGallery() async {
 
-    final pickedImageFile = await ImagePicker().pickImage(source: ImageSource.gallery);  // Stores picked image
+  //   final pickedImageFile = await ImagePicker().pickImage(source: ImageSource.gallery);  // Stores picked image
 
-    if (pickedImageFile != null) {
-      Get.snackbar(
-        'Profile Image', 
-        'Profile picture chosen!'
-      );
+  //   if (pickedImageFile != null) {
+  //     Get.snackbar(
+  //       'Profile Image', 
+  //       'Profile picture chosen!'
+  //     );
+  //   }
+
+  //   _pickedFile = Rx<File?>(File(pickedImageFile!.path));  // Converts picked image to type Rx<File>
+  // }
+
+  // // Captures image with phone camera
+  // Future<void> captureImageWithCamera() async {
+
+  //   final pickedImageFile = await ImagePicker().pickImage(source: ImageSource.camera);  // Stores captured image
+
+  //   if (pickedImageFile != null) {
+  //     Get.snackbar(
+  //       'Profile Image', 
+  //       'Profile picture captured!'
+  //     );
+  //   }
+
+  //   _pickedFile = Rx<File?>(File(pickedImageFile!.path));  // Converts picked image to type Rx<File>
+  // }
+
+  // Picks image from phone gallery or device camera
+  pickProfileImage(ImageSource source) async {
+    final ImagePicker _imagePicker = ImagePicker();  // Stores image_picker package
+
+    XFile? _file = await _imagePicker.pickImage(source: source);  // Stores picked image
+
+    if (_file != null) {
+      return await _file.readAsBytes();
+    } else {
+      print('No Image Selected!');
     }
-
-    _pickedFile = Rx<File?>(File(pickedImageFile!.path));  // Converts picked image to type Rx<File>
-  }
-
-  // Captures image with phone camera
-  Future<void> captureImageWithCamera() async {
-
-    final pickedImageFile = await ImagePicker().pickImage(source: ImageSource.camera);  // Stores captured image
-
-    if (pickedImageFile != null) {
-      Get.snackbar(
-        'Profile Image', 
-        'Profile picture captured!'
-      );
-    }
-
-    _pickedFile = Rx<File?>(File(pickedImageFile!.path));  // Converts picked image to type Rx<File>
   }
 
   // Creates new user account

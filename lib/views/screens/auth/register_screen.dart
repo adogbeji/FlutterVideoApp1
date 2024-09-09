@@ -1,4 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import 'package:image_picker/image_picker.dart';
+
 import 'package:video_app_1/controllers/auth_controller.dart';
 
 import 'package:video_app_1/views/widgets/profile_picture_options.dart';
@@ -13,9 +17,29 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   var authController = AuthController.instanceAuth;  // Stores instance of AuthController
 
+  Uint8List? _image;  // Stores picked image
+
   void _openModal() {
     showModalBottomSheet(context: context, builder: (ctx) {
-      return ProfilePictureOptions(authController);
+      return ProfilePictureOptions(authController, selectGalleryImage, selectCameraImage);
+    });
+  }
+
+  // Picks image from phone gallery
+  selectGalleryImage() async {
+    Uint8List im = await authController.pickProfileImage(ImageSource.gallery);  // Stores picked image
+
+    setState(() {
+      _image = im;
+    });
+  }
+
+  // Captures image with device camera
+  selectCameraImage() async {
+    Uint8List im = await authController.pickProfileImage(ImageSource.camera);  // Stores captured image
+
+    setState(() {
+      _image = im;
     });
   }
 
@@ -41,7 +65,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 Stack(
                   children: [
-                    const CircleAvatar(
+                    _image != null ? CircleAvatar(
+                      radius: 52,
+                      backgroundImage: MemoryImage(_image!),
+                    ): const CircleAvatar(
                       radius: 52,
                       child: Icon(
                         Icons.person,

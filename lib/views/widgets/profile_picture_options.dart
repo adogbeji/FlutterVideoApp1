@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:video_app_1/controllers/auth_controller.dart';
 
 class ProfilePictureOptions extends StatelessWidget {
-  ProfilePictureOptions(this._authController, {super.key});
+  ProfilePictureOptions(this._authController, this.onSelectGalleryImage, this.onSelectCameraImage, {super.key});
 
   final AuthController _authController;
+  final void Function() onSelectGalleryImage;
+  final void Function() onSelectCameraImage;
 
   // var authController = AuthController.instanceAuth;  // Stores instance of AuthController
 
@@ -28,7 +30,8 @@ class ProfilePictureOptions extends StatelessWidget {
                   IconButton(
                     onPressed: () {
                       // AuthController().chooseImageFromGallery();
-                      _authController.chooseImageFromGallery();
+                      // _authController.chooseImageFromGallery();
+                      onSelectGalleryImage();
                     },
                     icon: const Icon(Icons.photo_album_outlined),
                   ),
@@ -41,7 +44,8 @@ class ProfilePictureOptions extends StatelessWidget {
                   IconButton(
                     onPressed: () {
                       // AuthController().captureImageWithCamera();
-                      _authController.captureImageWithCamera();
+                      // _authController.captureImageWithCamera();
+                      onSelectCameraImage();
                     },
                     icon: const Icon(Icons.camera_alt),
                   ),
