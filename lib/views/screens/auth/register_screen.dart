@@ -17,6 +17,14 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   var authController = AuthController.instanceAuth;  // Stores instance of AuthController
 
+  late String email;
+
+  late String fullName;
+
+  late String phoneNumber;
+
+  late String password;
+
   Uint8List? _image;  // Stores picked image
 
   void _openModal() {
@@ -42,6 +50,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       _image = im;
     });
   }
+
+  void _registerUser() {}
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +156,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 // REGISTER BUTTON
                 InkWell(
-                  onTap: () {},
+                  onTap: _registerUser,
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: 52,
