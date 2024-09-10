@@ -56,7 +56,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   // Calls function in AuthController class
-  void _registerUser() {}
+  void _registerUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
