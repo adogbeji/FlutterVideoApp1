@@ -17,9 +17,11 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   var authController = AuthController.instanceAuth;  // Stores instance of AuthController
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form key
+
   late String email;
 
-  late String fullName;
+  late String name;
 
   late String phoneNumber;
 
@@ -63,160 +65,175 @@ class _RegisterScreenState extends State<RegisterScreen> {
         padding: const EdgeInsets.all(14.0),
         child: Center(
           child: SingleChildScrollView(
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text(
-                  'Register',
-                  style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 3,
+            child: Form(
+              key: _formKey,
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text(
+                    'Register',
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 3,
+                    ),
                   ),
-                ),
-
-                Stack(
-                  children: [
-                    _image != null ? CircleAvatar(
-                      radius: 52,
-                      backgroundImage: MemoryImage(_image!),
-                    ): const CircleAvatar(
-                      radius: 52,
-                      child: Icon(
+              
+                  Stack(
+                    children: [
+                      _image != null ? CircleAvatar(
+                        radius: 52,
+                        backgroundImage: MemoryImage(_image!),
+                      ): const CircleAvatar(
+                        radius: 52,
+                        child: Icon(
+                          Icons.person,
+                          size: 55,
+                        ),
+                      ),
+                      Positioned(
+                        right: -12,
+                        // top: 10,
+                        child: IconButton(
+                          onPressed: _openModal,
+                          icon: const Icon(Icons.camera_alt),
+                        ),
+                      ),
+                    ],
+                  ),
+              
+                  // NAME INPUT FIELD
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Name must not be empty!';
+                      } else {
+                        return null;  // Does nothing
+                      }
+                    },
+                    onChanged: (value) {
+                      name = value;
+                    },
+                    decoration: const InputDecoration(
+                      labelText: 'Name',
+                      hintText: 'Enter Name...',
+                      prefixIcon: Icon(
                         Icons.person,
-                        size: 55,
+                        color: Colors.red,
                       ),
                     ),
-                    Positioned(
-                      right: -12,
-                      // top: 10,
-                      child: IconButton(
-                        onPressed: _openModal,
-                        icon: const Icon(Icons.camera_alt),
+                  ),
+              
+                  const SizedBox(height: 8,),
+              
+                  // EMAIL INPUT FIELD
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Email must not be empty!';
+                      } else {
+                        return null;  // Does nothing
+                      }
+                    },
+                    onChanged: (value) {
+                      email = value;
+                    },
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      hintText: 'Enter Email...',
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Colors.red,
                       ),
                     ),
-                  ],
-                ),
-
-                // NAME INPUT FIELD
-                TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Name must not be empty!';
-                    } else {
-                      return null;  // Does nothing
-                    }
-                  },
-                  decoration: const InputDecoration(
-                    labelText: 'Name',
-                    hintText: 'Enter Name...',
-                    prefixIcon: Icon(
-                      Icons.person,
-                      color: Colors.red,
-                    ),
                   ),
-                ),
-
-                const SizedBox(height: 8,),
-
-                // EMAIL INPUT FIELD
-                TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Email must not be empty!';
-                    } else {
-                      return null;  // Does nothing
-                    }
-                  },
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    hintText: 'Enter Email...',
-                    prefixIcon: Icon(
-                      Icons.email,
-                      color: Colors.red,
+              
+                  const SizedBox(height: 8,),
+              
+                  // PHONE NUMBER INPUT FIELD
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Phone number must not be empty!';
+                      } else {
+                        return null;  // Does nothing
+                      }
+                    },
+                    onChanged: (value) {
+                      phoneNumber = value;
+                    },
+                    decoration: const InputDecoration(
+                      labelText: 'Phone',
+                      hintText: 'Enter Phone...',
+                      prefixIcon: Icon(
+                        Icons.phone,
+                        color: Colors.red,
+                      ),
                     ),
+                    keyboardType: TextInputType.phone,
                   ),
-                ),
-
-                const SizedBox(height: 8,),
-
-                // PHONE NUMBER INPUT FIELD
-                TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Phone number must not be empty!';
-                    } else {
-                      return null;  // Does nothing
-                    }
-                  },
-                  decoration: const InputDecoration(
-                    labelText: 'Phone',
-                    hintText: 'Enter Phone...',
-                    prefixIcon: Icon(
-                      Icons.phone,
-                      color: Colors.red,
+              
+                  const SizedBox(height: 8,),
+              
+                  // PASSWORD INPUT FIELD
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Password not be empty!';
+                      } else {
+                        return null;  // Does nothing
+                      }
+                    },
+                    onChanged: (value) {
+                      password = value;
+                    },
+                    decoration: const InputDecoration(
+                      labelText: 'Password',
+                      hintText: 'Enter Password...',
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Colors.red,
+                      ),
                     ),
+                    obscureText: true,
                   ),
-                  keyboardType: TextInputType.phone,
-                ),
-
-                const SizedBox(height: 8,),
-
-                // PASSWORD INPUT FIELD
-                TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Password not be empty!';
-                    } else {
-                      return null;  // Does nothing
-                    }
-                  },
-                  decoration: const InputDecoration(
-                    labelText: 'Password',
-                    hintText: 'Enter Password...',
-                    prefixIcon: Icon(
-                      Icons.lock,
-                      color: Colors.red,
-                    ),
-                  ),
-                  obscureText: true,
-                ),
-
-                const SizedBox(height: 12,),
-
-                // REGISTER BUTTON
-                InkWell(
-                  onTap: _registerUser,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 52,
-                    decoration: BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'Register',
-                        style: TextStyle(
-                          fontSize: 18,
+              
+                  const SizedBox(height: 12,),
+              
+                  // REGISTER BUTTON
+                  InkWell(
+                    onTap: _registerUser,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 52,
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Register',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('Already have an account?'),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text('Sign in.'),
-                    ),
-                  ],
-                ),
-              ],
+              
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('Already have an account?'),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text('Sign in.'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
