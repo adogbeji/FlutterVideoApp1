@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:video_app_1/controllers/auth_controller.dart';
+import 'package:video_app_1/utils/show_snack_bar.dart';
 
 import 'package:video_app_1/views/widgets/profile_picture_options.dart';
 
@@ -56,10 +57,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   // Calls function in AuthController class
-  void _registerUser() async {
+  void _registerUser() {
     setState(() {
       _isLoading = true;
     });
+
+    if (authController.profileImage != null && name.isNotEmpty && email.isNotEmpty && password.isNotEmpty) {
+      
+      // Creates new user account
+      authController.createAccountForNewUser(
+        authController.profileImage!, 
+        name, 
+        email, 
+        password
+      );
+
+      return showSnack(context, 'Congrats, your account has been created!');
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+      return showSnack(context, 'Fields must not be empty!');
+    }
   }
 
   @override
