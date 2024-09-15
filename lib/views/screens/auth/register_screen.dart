@@ -71,13 +71,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         email, 
         password
       );
-
-      return showSnack(context, 'Congrats, your account has been created!');
     } else {
       setState(() {
         _isLoading = false;
       });
-      return showSnack(context, 'Fields must not be empty!');
     }
   }
 
