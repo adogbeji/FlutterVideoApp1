@@ -6,6 +6,8 @@ import 'package:video_app_1/views/screens/home/upload_video/upload_video_screen.
 import 'package:video_app_1/views/screens/home/following/followings_video_screen.dart';
 import 'package:video_app_1/views/screens/home/profile/profile_screen.dart';
 
+import 'package:video_app_1/views/screens/home/upload_video/upload_custom_icon.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -47,7 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Discover',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add, size: 20,),
+            // icon: Icon(Icons.add, size: 20,),
+            icon: UploadCustomIcon(),
             label: '',
           ),
           BottomNavigationBarItem(

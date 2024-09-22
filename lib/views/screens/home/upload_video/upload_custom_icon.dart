@@ -5,9 +5,18 @@ class UploadCustomIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Upload Icon'),
+    return const SizedBox(
+      width: 46,
+      height: 32,
+      child: Stack(
+        children: [
+          Center(
+            child: Icon(
+              Icons.add,
+              size: 24,
+            ),
+          ),
+        ],
       ),
     );
   }
