@@ -39,23 +39,23 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: Colors.red,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 16,),
+            icon: Icon(Icons.home, size: 20,),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search, size: 16,),
+            icon: Icon(Icons.search, size: 20,),
             label: 'Discover',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add, size: 16,),
+            icon: Icon(Icons.add, size: 20,),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.inbox_sharp, size: 16,),
+            icon: Icon(Icons.inbox_sharp, size: 20,),
             label: 'Following',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, size: 16,),
+            icon: Icon(Icons.person, size: 20,),
             label: 'Me',
           ),
         ],
