@@ -10,6 +10,15 @@ class UploadCustomIcon extends StatelessWidget {
       height: 32,
       child: Stack(
         children: [
+          Container(
+            width: 40,
+            margin: EdgeInsets.only(left: 12),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 250, 45, 108),
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+      
           Center(
             child: Container(
               width: 40,
