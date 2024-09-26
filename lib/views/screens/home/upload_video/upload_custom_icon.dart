@@ -36,7 +36,7 @@ class UploadCustomIcon extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.add,
                 size: 24,
               ),
