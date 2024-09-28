@@ -106,7 +106,9 @@ class _UploadVideoScreenState extends State<UploadVideoScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Upload Video Screen'),
+        child: Column(
+          children: [],
+        ),
       ),
     );
   }
