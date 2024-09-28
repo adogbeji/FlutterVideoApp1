@@ -104,10 +104,12 @@ class _UploadVideoScreenState extends State<UploadVideoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Column(
-          children: [],
+          children: [
+            Image.asset('assets/images/upload.png'),
+          ],
         ),
       ),
     );
