@@ -16,7 +16,8 @@ class UploadVideoScreen extends StatefulWidget {
 
 class _UploadVideoScreenState extends State<UploadVideoScreen> {
   getVideoFile(ImageSource source) async {
-    final videoFile = await ImagePicker().pickVideo(source: source);  // Stores video file
+    final videoFile =
+        await ImagePicker().pickVideo(source: source); // Stores video file
 
     if (videoFile != null) {
       // Get.to(
@@ -107,8 +108,21 @@ class _UploadVideoScreenState extends State<UploadVideoScreen> {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/upload.png'),
+            Image.asset(
+              'assets/images/upload.png',
+              width: 240,
+            ),
+
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Upload Video', style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.w500
+              ),),
+            ),
           ],
         ),
       ),
