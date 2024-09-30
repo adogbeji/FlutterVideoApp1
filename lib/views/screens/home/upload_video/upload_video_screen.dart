@@ -115,13 +115,20 @@ class _UploadVideoScreenState extends State<UploadVideoScreen> {
               width: 240,
             ),
 
+            const SizedBox(height: 10,),
+
             ElevatedButton(
-              onPressed: () {},
-              child: const Text('Upload Video', style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontWeight: FontWeight.w500
-              ),),
+              onPressed: displayDialogBox,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+              ),
+              child: const Text(
+                'Upload Video',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500),
+              ),
             ),
           ],
         ),
