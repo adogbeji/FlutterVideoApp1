@@ -16,17 +16,16 @@ class UploadVideoScreen extends StatefulWidget {
 
 class _UploadVideoScreenState extends State<UploadVideoScreen> {
   getVideoFile(ImageSource source) async {
-    final videoFile =
-        await ImagePicker().pickVideo(source: source); // Stores video file
+    final videoFile = await ImagePicker().pickVideo(source: source); // Stores video file
 
     if (videoFile != null) {
-      // Get.to(
-      //   UploadForm(
-      //     videoFile:
-      //         File(videoFile.path), // File which is available at this path
-      //     videoPath: videoFile.path,
-      //   ),
-      // );
+      Get.to(
+        UploadForm(
+          videoFile:
+              File(videoFile.path), // File which is available at this path
+          videoPath: videoFile.path,
+        ),
+      );
     }
   }
 
