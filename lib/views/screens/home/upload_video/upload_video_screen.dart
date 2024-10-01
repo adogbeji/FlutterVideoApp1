@@ -34,6 +34,7 @@ class _UploadVideoScreenState extends State<UploadVideoScreen> {
     return showDialog(
       context: context,
       builder: (context) => SimpleDialog(
+        // title: const Text('Pick Profile Picture'),
         children: [
           SimpleDialogOption(
             onPressed: () {
@@ -125,9 +126,10 @@ class _UploadVideoScreenState extends State<UploadVideoScreen> {
               child: const Text(
                 'Upload Video',
                 style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500),
+                  fontSize: 16,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ],
