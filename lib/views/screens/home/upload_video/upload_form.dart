@@ -20,6 +20,29 @@ class _UploadFormState extends State<UploadForm> {
   TextEditingController descriptionTagsTextEditingController = TextEditingController();
 
   @override
+  void initState() {
+    // TODO: implement initState
+    setState(() {
+      playerController = VideoPlayerController.file(widget.videoFile);
+    });
+
+    playerController!.initialize();  // Opens up video
+    playerController!.play();  // Starts video
+    playerController!.setVolume(2);  // Sets volume
+    playerController!.setLooping(true);  // Allows autoplay
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    playerController!.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
