@@ -1,6 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
+
+import 'package:video_app_1/models/utils/global.dart';
 
 import 'package:video_player/video_player.dart';
 
@@ -54,6 +57,20 @@ class _UploadFormState extends State<UploadForm> {
               height: MediaQuery.of(context).size.height / 1.6,
               child: VideoPlayer(playerController!),
             ),
+
+            showProgressBar == true 
+            ? Container(
+              child: const SimpleCircularProgressBar(
+                progressColors: [
+                  Colors.red,
+                  Colors.pink,
+                  Colors.green,
+                ],
+                animationDuration: 3,
+                backColor: Colors.white38,
+              ),
+            )
+            : Column(),
           ],
         ),
       ),
