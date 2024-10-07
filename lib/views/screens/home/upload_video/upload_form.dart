@@ -70,7 +70,21 @@ class _UploadFormState extends State<UploadForm> {
                 backColor: Colors.white38,
               ),
             )
-            : Column(),
+            : Column(
+              children: [
+                // ARTIST/SONG
+                TextFormField(
+                  decoration: const InputDecoration(
+                      labelText: 'Artist - Song',
+                      hintText: 'Enter Artist - Song...',
+                      prefixIcon: Icon(
+                        Icons.music_video,
+                        color: Colors.red,
+                      ),
+                    ),
+                )
+              ],
+            ),
           ],
         ),
       ),
