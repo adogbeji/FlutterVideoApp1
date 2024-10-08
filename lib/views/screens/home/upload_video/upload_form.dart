@@ -58,33 +58,49 @@ class _UploadFormState extends State<UploadForm> {
               child: VideoPlayer(playerController!),
             ),
 
-            showProgressBar == true 
-            ? Container(
-              child: const SimpleCircularProgressBar(
-                progressColors: [
-                  Colors.red,
-                  Colors.pink,
-                  Colors.green,
-                ],
-                animationDuration: 3,
-                backColor: Colors.white38,
-              ),
-            )
-            : Column(
-              children: [
-                // ARTIST/SONG
-                TextFormField(
-                  decoration: const InputDecoration(
-                      labelText: 'Artist - Song',
-                      hintText: 'Enter Artist - Song...',
-                      prefixIcon: Icon(
-                        Icons.music_video,
-                        color: Colors.red,
-                      ),
+            showProgressBar == true
+                ? Container(
+                    child: const SimpleCircularProgressBar(
+                      progressColors: [
+                        Colors.red,
+                        Colors.pink,
+                        Colors.green,
+                      ],
+                      animationDuration: 3,
+                      backColor: Colors.white38,
                     ),
-                )
-              ],
-            ),
+                  )
+                : Column(
+                    children: [
+                      // ARTIST/SONG
+                      TextFormField(
+                        controller: artistSongTextEditingController,
+                        decoration: const InputDecoration(
+                          labelText: 'Artist - Song',
+                          hintText: 'Enter Artist - Song...',
+                          prefixIcon: Icon(
+                            Icons.music_video,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 10,),
+
+                      // DESCRIPTION TAGS
+                      TextFormField(
+                        controller: descriptionTagsTextEditingController,
+                        decoration: const InputDecoration(
+                          labelText: 'Description - Tags',
+                          hintText: 'Enter Description - Tags...',
+                          prefixIcon: Icon(
+                            Icons.label,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
           ],
         ),
       ),
