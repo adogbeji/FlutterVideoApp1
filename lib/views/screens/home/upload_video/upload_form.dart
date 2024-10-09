@@ -99,6 +99,15 @@ class _UploadFormState extends State<UploadForm> {
                           ),
                         ),
                       ),
+
+                      // UPLOAD BUTTON
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 54,
+                        decoration: const BoxDecoration(
+                          color: Colors.white70,
+                        ),
+                      ),
                     ],
                   ),
           ],
