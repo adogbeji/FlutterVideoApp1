@@ -85,7 +85,7 @@ class _UploadFormState extends State<UploadForm> {
                         ),
                       ),
 
-                      const SizedBox(height: 10,),
+                      const SizedBox(height: 12,),
 
                       // DESCRIPTION TAGS
                       TextFormField(
@@ -100,19 +100,26 @@ class _UploadFormState extends State<UploadForm> {
                         ),
                       ),
 
+                      const SizedBox(height: 8,),
+
                       // UPLOAD BUTTON
                       InkWell(
                         onTap: () {},
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           height: 54,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Colors.white70,
+                            borderRadius: BorderRadius.circular(10),
                           ),
                           child: const Center(
-                            child: Text('Upload', style: TextStyle(
-                              fontSize: 20,
-                            ),),
+                            child: Text(
+                              'Upload',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ),
                       ),
