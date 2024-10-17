@@ -12,8 +12,12 @@ class UploadController extends GetxController {
   }
   
   // Uploads Compressed Video
-  uploadCompressedVideo(String videoID, String videoFile) async {
-    UploadTask videoUploadTask = FirebaseStorage.instance.ref().child('videos');
+  uploadCompressedVideo(String videoID, String videoFilePath) async {
+    UploadTask videoUploadTask = FirebaseStorage.instance
+                                                .ref()
+                                                .child('videos')
+                                                .child(videoID)
+                                                .putFile(await compressVideoFile(videoFilePath));
   }
 
   // Gets Video Thumbnail
