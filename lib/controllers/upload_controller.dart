@@ -18,6 +18,8 @@ class UploadController extends GetxController {
                                                 .child('videos')
                                                 .child(videoID)
                                                 .putFile(await compressVideoFile(videoFilePath));
+
+    TaskSnapshot snapshot = await videoUploadTask;
   }
 
   // Gets Video Thumbnail
