@@ -20,6 +20,10 @@ class UploadController extends GetxController {
                                                 .putFile(await compressVideoFile(videoFilePath));
 
     TaskSnapshot snapshot = await videoUploadTask;
+
+    String downloadURL = await snapshot.ref.getDownloadURL();  // Stores download URL
+
+    return downloadURL;
   }
 
   // Gets Video Thumbnail
