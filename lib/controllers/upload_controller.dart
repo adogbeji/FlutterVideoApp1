@@ -32,4 +32,19 @@ class UploadController extends GetxController {
 
     return thumbnailImage;
   }
+
+  // Uploads Thumbnail Image
+  uploadThumbnailImage(String videoID, String videoFilePath) async {
+    UploadTask videoUploadTask = FirebaseStorage.instance
+                                                .ref()
+                                                .child('videos')
+                                                .child(videoID)
+                                                .putFile(await compressVideoFile(videoFilePath));
+
+    TaskSnapshot snapshot = await videoUploadTask;
+
+    String downloadURL = await snapshot.ref.getDownloadURL();  // Stores download URL
+
+    return downloadURL;
+  }
 }
