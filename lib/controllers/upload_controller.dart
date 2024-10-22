@@ -35,13 +35,13 @@ class UploadController extends GetxController {
 
   // Uploads Thumbnail Image
   uploadThumbnailImage(String videoID, String videoFilePath) async {
-    UploadTask videoUploadTask = FirebaseStorage.instance
+    UploadTask thumbnailUploadTask = FirebaseStorage.instance
                                                 .ref()
-                                                .child('videos')
+                                                .child('All Thumbnails')
                                                 .child(videoID)
-                                                .putFile(await compressVideoFile(videoFilePath));
+                                                .putFile(await getThumbnailImage(videoFilePath));
 
-    TaskSnapshot snapshot = await videoUploadTask;
+    TaskSnapshot snapshot = await thumbnailUploadTask;
 
     String downloadURL = await snapshot.ref.getDownloadURL();  // Stores download URL
 
