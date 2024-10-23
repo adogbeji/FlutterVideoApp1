@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:video_compress/video_compress.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -47,4 +49,7 @@ class UploadController extends GetxController {
 
     return downloadURL;
   }
+
+  // Saves Video Details In Firestore Database
+  saveVideoInfo(String artistSongName, String descriptionTags, String videoFilePath, BuildContext context) {}
 }
