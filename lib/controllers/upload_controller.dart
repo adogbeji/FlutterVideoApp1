@@ -51,5 +51,15 @@ class UploadController extends GetxController {
   }
 
   // Saves Video Details In Firestore Database
-  saveVideoInfo(String artistSongName, String descriptionTags, String videoFilePath, BuildContext context) {}
+  saveVideoInfo(String artistSongName, String descriptionTags, String videoFilePath, BuildContext context) {
+
+    try {
+      
+    } catch (errMsg) {
+      Get.snackbar(
+        'Upload Failed!', 
+        'Sorry, your video could not be uploaded. Try again.'
+      );
+    }
+  }
 }
