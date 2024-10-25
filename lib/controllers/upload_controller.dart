@@ -54,7 +54,7 @@ class UploadController extends GetxController {
   saveVideoInfo(String artistSongName, String descriptionTags, String videoFilePath, BuildContext context) {
 
     try {
-      
+      String videoID = DateTime.now().millisecondsSinceEpoch.toString();  // Stores video ID as timestamp
     } catch (errMsg) {
       Get.snackbar(
         'Upload Failed!', 
